@@ -1,0 +1,17 @@
+@startuml "Signaling Protocol"
+
+
+participant Responder as responder
+participant Initiator as initiator
+
+responder -> initiator: request_feeds
+
+activate initiator
+initiator -> initiator: create uuid array with feeds
+initiator -> responder: response_feeds
+deactivate initiator
+
+note left: a p2p connection was established
+
+
+@enduml

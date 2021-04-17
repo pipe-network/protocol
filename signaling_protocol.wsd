@@ -1,0 +1,52 @@
+@startuml "Signaling Protocol"
+
+participant Responder as responder
+participant Initiator as initiator
+participant "Signaling Server" as signaling_server
+
+responder -> signaling_server: authenticate
+
+alt intitiator is online?
+  signaling_server -> initiator: push notification to wake up
+end
+
+initiator -> signaling_server: authenticate
+signaling_server -> initiator: responder address 0x02
+
+initiator -> signaling_server: authenticate initiator
+signaling_server -> responder: redirect authenticate initiator
+responder -> signaling_server: authenticate responder
+signaling_server -> initiator: redirect authenticate responder
+
+activate initiator
+initiator -> initiator: create offer
+initiator -> initiator: setLocalDescription(offer)
+initiator -> signaling_server: send webrtc offer
+deactivate initiator
+
+signaling_server -> responder: redirect offer
+
+activate responder
+responder -> responder: setRemoteDescription(offer)
+responder -> responder: create answer
+responder -> responder: setLocalDescription(answer)
+responder -> signaling_server: send webrtc answer
+deactivate responder
+
+signaling_server -> initiator: redirect answer
+activate initiator
+initiator -> initiator: setLocalDescription(offer)
+deactivate initiator
+
+initiator -> signaling_server: send n ICE candidates
+signaling_server -> responder: redirect n ICE candidates
+
+responder -> signaling_server: send n ICE candidates
+signaling_server -> initiator: redirect n ICE candidates
+
+initiator -> responder: create webrtc data channel
+responder --> initiator: create webrtc data channel
+
+initiator -> signaling_server: handover
+responder -> signaling_server: handover
+@enduml
