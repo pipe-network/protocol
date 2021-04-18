@@ -22,7 +22,7 @@ Example:
 
 ```json
 {
-  "type": "message"
+  "type": "Message"
 }
 ```
 
@@ -38,7 +38,7 @@ Example:
 
 ```json
 {
-  "type": "profile",
+  "type": "Profile",
   "first_name": "Hanky",
   "last_name": "Hank",
   "description": "I am Hanky Hank! :)",
@@ -72,7 +72,7 @@ Example:
 {
   "type": "respond_profile",
   "profile": {
-    "type": "profile",
+    "type": "Profile",
     "first_name": "Hanky",
     "last_name": "Hank",
     "description": "I am Hanky Hank! :)",
