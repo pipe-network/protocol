@@ -22,7 +22,7 @@ Example:
 
 ```json
 {
-  "type": "message"   # string
+  "type": "message"
 }
 ```
 
@@ -38,13 +38,13 @@ Example:
 
 ```json
 {
-  "type": "profile",                            # string
-  "first_name": "Hanky",                        # string
-  "last_name": "Hank",                          # string
-  "description": "I am Hanky Hank! :)"          # string
-  "profile_picture": [0x12, 0xAF],              # byte array
-  "profile_picture_mimetype": "image/png",      # string
-  "public_key": "9611199a8ce7e2baad6c3a72..."   # string
+  "type": "profile",
+  "first_name": "Hanky",
+  "last_name": "Hank",
+  "description": "I am Hanky Hank! :)",
+  "profile_picture": ["0x12", "0xAF"],
+  "profile_picture_mimetype": "image/png",
+  "public_key": "9611199a8ce7e2baad6c3a72..."
 }
 ```
 
@@ -58,7 +58,7 @@ Example:
 
 ```json
 {
-  "type": "request_profile",    # string
+  "type": "request_profile"
 }
 ```
 
@@ -72,13 +72,13 @@ Example:
 {
   "type": "respond_profile",
   "profile": {
-    "type": "profile",                            # string
-    "first_name": "Hanky",                        # string
-    "last_name": "Hank",                          # string
-    "description": "I am Hanky Hank! :)"          # string
-    "profile_picture": [0x12, 0xAF],              # byte array
-    "profile_picture_mimetype": "image/png",      # string
-    "public_key": "9611199a8ce7e2baad6c3a72..."   # string
+    "type": "profile",
+    "first_name": "Hanky",
+    "last_name": "Hank",
+    "description": "I am Hanky Hank! :)",
+    "profile_picture": [0x12, 0xAF],
+    "profile_picture_mimetype": "image/png",
+    "public_key": "9611199a8ce7e2baad6c3a72..."
   },
 }
 ```
@@ -98,8 +98,8 @@ Example:
 
 ```json
 {
-  "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-  "timestamp": 1618661370,                        # big int
+  "id": "da721ce1-4841-442d-9167-45ab45d43528",
+  "timestamp": 1618661370
 }
 ```
 
@@ -113,7 +113,7 @@ Example:
 
 ```json
 {
-  "type": "request_feed_intros",    # string
+  "type": "request_feed_intros"
 }
 ```
 
@@ -123,13 +123,12 @@ Respond feed intros responses all feed intros available on the device
 
 ```json
 {
-  "type": "respond_feed_intros",                      # string
-  "feed_intros": [                                    # array<FeedIntro>
-    {                                                 # FeedIntro
-      "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-      "timestamp": 1618661370,                        # big int
-    },
-    ...
+  "type": "respond_feed_intros",
+  "feed_intros": [
+    {
+      "id": "da721ce1-4841-442d-9167-45ab45d43528",
+      "timestamp": 1618661370
+    }
   ]
 }
 ```
@@ -155,9 +154,9 @@ Example:
 
 ```json
 {
-  "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-  "type": "BaseFeed",                             # string
-  "timestamp": 1618661370,                        # big int
+  "id": "da721ce1-4841-442d-9167-45ab45d43528",
+  "type": "BaseFeed",
+  "timestamp": 1618661370
 }
 ```
 
@@ -169,10 +168,10 @@ Example:
 
 ```json
 {
-  "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-  "type": "TextFeed",                             # string
-  "timestamp": 1618661370,                        # big int
-  "text": "Some thoughts!",                       # string
+  "id": "da721ce1-4841-442d-9167-45ab45d43528",
+  "type": "TextFeed",
+  "timestamp": 1618661370,
+  "text": "Some thoughts!"
 }
 ```
 
@@ -184,11 +183,11 @@ Example:
 
 ```json
 {
-  "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-  "type": "ImageFeed",                            # string
-  "timestamp": 1618661370,                        # big int
-  "text": "Some thoughts!",                       # string
-  "image": [0x12, 0x43]                           # byte array
+  "id": "da721ce1-4841-442d-9167-45ab45d43528",
+  "type": "ImageFeed",
+  "timestamp": 1618661370,
+  "text": "Some thoughts!",
+  "image": ["0x12", "0x43"]
 }
 ```
 
@@ -204,8 +203,8 @@ Example:
 
 ```json
 {
-  "type": "request_feed",                         # string
-  "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
+  "type": "request_feed",
+  "id": "da721ce1-4841-442d-9167-45ab45d43528"
 }
 ```
 
@@ -217,13 +216,13 @@ Example:
 
 ```json
 {
-  "type": "respond_feed"                            # string
-  "feed": {                                         # feed
-    "id": "da721ce1-4841-442d-9167-45ab45d43528"    # uuid
-    "type": "ImageFeed",                            # string
-    "timestamp": 1618661370,                        # big int
-    "text": "Some thoughts!",                       # string
-    "image": [0x12, 0x43]                           # byte array
+  "type": "respond_feed",
+  "feed": {
+    "id": "da721ce1-4841-442d-9167-45ab45d43528",
+    "type": "ImageFeed",
+    "timestamp": 1618661370,
+    "text": "Some thoughts!",
+    "image": ["0x12", "0x43"]
   }
 }
 ```
