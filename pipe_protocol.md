@@ -76,7 +76,7 @@ Example:
     "first_name": "Hanky",
     "last_name": "Hank",
     "description": "I am Hanky Hank! :)",
-    "profile_picture": [0x12, 0xAF],
+    "profile_picture": ["0x12", "0xAF"],
     "profile_picture_mimetype": "image/png",
     "public_key": "9611199a8ce7e2baad6c3a72..."
   },
