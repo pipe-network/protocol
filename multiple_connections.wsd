@@ -1,0 +1,32 @@
+@startuml "Multiple Connection Protocol"
+
+participant "Responder 1" as responder1
+participant Initiator as initiator
+participant "Signaling Server" as signaling_server
+participant "Responder 2" as responder2
+
+responder1 -> signaling_server: connect /123 & auth
+signaling_server -> initiator: wake up and connect to 1
+
+responder2 -> signaling_server: connect /123 & auth
+activate responder2
+
+signaling_server -> initiator: wake up and connect to 2
+initiator -> signaling_server: connect /123 & auth
+
+initiator -> responder1: establish p2p
+
+responder2 -> responder2: waiting
+
+initiator -> responder1: pipe messages
+initiator -> signaling_server: handover
+responder1 -> signaling_server: handover
+
+initiator -> responder2: establish p2p
+deactivate responder2
+
+initiator -> responder2: pipe messages
+initiator -> signaling_server: handover
+responder2 -> signaling_server: handover
+
+@enduml
