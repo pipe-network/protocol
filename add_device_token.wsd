@@ -1,0 +1,17 @@
+@startuml "Add device token"
+
+participant Device as device
+participant "Signaling Server" as signaling_server
+
+device -> signaling_server: new_token
+activate signaling_server
+
+signaling_server -> signaling_server: generate uuid
+signaling_server -> signaling_server: encrypt uuid as message \nwith public key of device
+signaling_server -> device: send message
+activate device
+device -> device: decrypt message with private key
+device -> signaling_server: send uuid and token as message\n encrypted with public key of server
+deactivate device
+signaling_server -> signaling_server: add token of device
+@enduml

@@ -1,0 +1,22 @@
+@startuml "Pipe Messaging Protocol"
+
+participant Responder as responder
+participant Initiator as initiator
+
+responder -> initiator: request_profile
+initiator -> responder: respond_profile: Profile
+
+initiator -> responder: request_profile
+responder -> initiator: respond_profile: Profile
+
+responder -> initiator: request_feed_heads
+initiator -> responder: respond_feed_heads: FeedHead
+
+loop for not_seen_feed in respond_feed_heads
+  responder -> initiator: request_feed(id)
+  initiator -> responder: respond_feed: Feed
+end
+
+initiator -> responder: close
+
+@enduml
