@@ -17,6 +17,6 @@ loop for not_seen_feed in respond_feed_heads
   initiator -> responder: respond_feed: Feed
 end
 
-initiator -> responder: close
+responder -> initiator: close
 
 @enduml

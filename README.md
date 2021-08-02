@@ -16,7 +16,7 @@ Following sequence diagram shows, what to do if multiple reponders try to connec
 
 ![Multiple Connection](https://raw.githubusercontent.com/pipe-network/protocol/main/out/multiple_connections/Multiple%20Connection%20Protocol.png)
 
-## Pipe Messaging Token
+## Pipe Messaging Protocol
 
 Following sequence diagram shows how
 
